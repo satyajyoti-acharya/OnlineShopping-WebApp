@@ -1,0 +1,36 @@
+<div class="card border-0">
+    <div class="card-body">
+        <h2>Book Ticket</h2>
+        <form>
+            <div style="width: 50%;">
+                <label class="form-label">Name</label>
+                <input [(ngModel)]="flightBookRequest.name" class="form-control" type="text" />
+            </div>
+            <div  style="width: 50%;">
+                <label class="form-label">No of Passenger</label>
+                <input [(ngModel)]="flightBookRequest.noOfSeats"class="form-control" type="number" />
+            </div>
+            <div  style="width: 50%;">
+                <label class="form-label">Discount Code</label>
+                <input [(ngModel)]="flightBookRequest.discountUsed" class="form-control" type="text" />
+            </div>
+            <div  style="width: 50%;">
+                <label class="form-label">Seat Type</label>
+                <select class="form-control" [(ngModel)]="flightBookRequest.seatType" id="seatType" name="seatType">
+                    <option value="" [disabled]="true" selected>Enter Seat Type</option>
+                    <option value="Business">Business</option>
+                    <option value="Non-Business">Non-Business</option>
+                </select>
+            </div>
+            <div class="col">
+                <!-- <div class="row">
+                    <label class="form-label">Name</label>
+                    <input [(ngModel)]="flightBookRequest.passengerDetailList.firstName" class="form-control" type="text" />
+                </div> -->
+            </div>
+            <div class="py-4">
+                <input type="submit" class="btn btn-primary" value="Book Ticket"/>
+            </div>
+        </form>
+    </div>
+</div>

@@ -1,0 +1,13 @@
+.masthead {
+    height: fit-content;
+    min-height: fit-content;
+    background-image: url('https://source.unsplash.com/BtbjCFUvBXs/1920x1080');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+  }
+  body {
+    overflow-x: hidden; /* Hide horizontal scrollbar */
+  }
+html, body { height: 100%; }
+body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }

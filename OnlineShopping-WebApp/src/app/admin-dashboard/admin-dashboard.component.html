@@ -1,0 +1,95 @@
+<div class="container" style="padding-top: 1em; margin-left: -2em;">
+    <ul class="nav nav-tabs">
+        <li class="nav-item">
+            <a class="nav-link active" [ngClass]="{ 'active':activeTab==='AddProduct'}" data-toggle="tab"
+                (click)="onAddProductTabClick()">Add Product</a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link" data-toggle="tab" [ngClass]="{ 'active':activeTab==='ViewProduct'}"
+                (click)="onViewProductTabClick()">View Products</a>
+        </li>
+    </ul>
+
+    <!-- Tab panes -->
+    <div class="tab-content">
+        <div class="tab-pane container active" id="home" [ngClass]="{ 'active':activeTab==='AddProduct'}">
+            <form style="padding:20px">
+                <div class="row">
+                    <div class="col">
+                        <label class="form-label">Product Name</label>
+                        <input [(ngModel)]="addProductRequest.productName" class="form-control" type="text" [ngModelOptions]="{standalone: true}" />
+                    </div>
+                    <div class="col">
+                        <label class="form-label">Product Description</label>
+                        <input [(ngModel)]="addProductRequest.productDesc" class="form-control" type="text" [ngModelOptions]="{standalone: true}" />
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col">
+                        <label class="form-label">Price</label>
+                        <input [(ngModel)]="addProductRequest.price" class="form-control" type="number" [ngModelOptions]="{standalone: true}"/>
+                    </div>
+                    <div class="col">
+                        <label class="form-label">Features</label>
+                        <input [(ngModel)]="addProductRequest.feature" class="form-control" type="text" [ngModelOptions]="{standalone: true}"/>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col">
+                        <label class="form-label">Quantity Available</label>
+                        <input [(ngModel)]="addProductRequest.quantityAvailable" class="form-control" type="number" [ngModelOptions]="{standalone: true}" />
+                    </div>
+                    <div class="col">
+                        <label class="form-label">Product Status</label>
+                        <input class="form-control" type="text" value="Available" disabled=true/>
+                    </div>
+                </div>
+                
+
+                
+
+                <div class="py-4">
+                    <button type="submit" class="btn btn-primary" (click)="AddProducts(addProductRequest)">Save</button>
+                </div>
+            </form>
+        </div>
+    </div>
+    <div class="tab-content">
+        <div class="tab-pane container" id="menu1" [ngClass]="{ 'active':activeTab==='ViewProduct'}">
+            <div class="card-border-0">
+                <div class="card-body">
+                  <div class="container">
+                    <h2>Product Inventory</h2>
+                    <table class="table table-striped">
+                      <thead>
+                        <tr>
+                          <th>Product Name</th>
+                          <th>Product Description</th>
+                          <th>Price</th>
+                          <th>Features</th>
+                          <th>Quantity Available</th>
+                          <th>Product Status</th>
+                          <th [hidden]="true">ProductId</th>
+                          <th></th>
+                        </tr>
+                      </thead>
+                      <tbody>
+                        <tr *ngFor="let prod of getData">
+                          <td>{{prod.productName}}</td>
+                          <td>{{prod.productDesc}}</td>
+                          <td>{{prod.price}}</td>
+                          <td>{{prod.feature}}</td>
+                          <td>{{prod.quantityAvailable}}</td>
+                          <td>{{prod.status}}</td>
+                          <td [hidden]="true">{{prod.id}}</td>
+                          <td><input type="submit" class="btn btn-warning" value="Update Status" (click)="updateProdStatus(prod)" /></td>
+                          <td><input type="submit" class="btn btn-danger" value="Delete" (click)="deleteProd(prod)" /></td>
+                        </tr>
+                      </tbody>
+                    </table>
+                  </div>
+                </div>
+              </div>
+        </div>
+    </div>
+</div>

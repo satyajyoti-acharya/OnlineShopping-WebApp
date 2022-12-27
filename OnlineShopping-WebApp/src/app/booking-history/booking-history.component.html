@@ -1,0 +1,31 @@
+<div class="card-border-0">
+    <div class="card-body">
+        <div class="container">
+            <h2>Booking History</h2>           
+            <table class="table table-striped">
+              <thead>
+                <tr>
+                  <th>PNR</th>
+                  <th [hidden]="true">BookingId</th>
+                  <th>AirlineName</th>
+                  <th>TicketCost</th>
+                  <th>DateOfJourney</th>
+                  <th>BookingStatus</th>
+                  <th></th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr *ngFor="let bhResp of bookingHistoryResponse">
+                  <td>{{bhResp.Pnr}}</td>
+                  <td [hidden]="true">{{bhResp.BookingId}}</td>
+                  <td>{{bhResp.AirlineName}}</td>
+                  <td>{{bhResp.TicketCost}}</td>
+                  <td>{{bhResp.DateOfJourney}}</td>
+                  <td>{{bhResp.BookingStatus}}</td>
+                  <!-- <td *ngIf="bhResp.BookingStatus=='Active'"><input type="submit" class="btn btn-alert" value="Cancel"/></td> -->
+                </tr>
+              </tbody>
+            </table>
+          </div>
+    </div>
+</div>

@@ -1,0 +1,26 @@
+  <div class="container" style="padding-top: 2em;">
+    <div class="row">
+      <div class="col">
+        <input class="form-control" type="text" [(ngModel)]="searchText"/>
+      </div>
+      <div class="col">
+        <button type="button" class="btn btn-primary" (click)=ProductSearch(searchText)>Search</button>
+      </div>
+      
+    </div>
+    <div class="row">
+      <div class="col-md-3 mx-auto my-5"  *ngFor="let prod of getData">
+        <div class="card">
+          <img src="https://mdbcdn.b-cdn.net/img/new/standard/nature/184.webp" class="card-img-top"
+            alt="Fissure in Sandstone" />
+          <div class="card-body">
+            <h5 class="card-title">{{prod.productName}}</h5>
+            <p class="card-text">{{prod.productDesc}}</p>
+            <p class="card-text">{{prod.feature}}</p>
+            <p class="card-text">{{prod.price}}</p>
+            <p class="card-text">{{prod.status}}</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
